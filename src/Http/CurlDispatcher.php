@@ -13,14 +13,14 @@ use Psr\Http\Message\ResponseInterface;
  */
 final class CurlDispatcher
 {
-    private RequestInterface $request;
+    private $request;
     private $curl;
     private $result;
-    private array $headers = [];
+    private $headers = [];
     private $isBinary = false;
     private $body;
-    private ?int $error = null;
-    private array $settings;
+    private $error = null;
+    private $settings;
 
     /**
      * @return ResponseInterface[]
@@ -72,7 +72,9 @@ final class CurlDispatcher
         curl_multi_close($multi);
 
         return array_map(
-            fn ($connection) => $connection->exec($responseFactory),
+            function ($connection) use ($responseFactory) {
+                return $connection->exec($responseFactory);
+            },
             $connections
         );
     }

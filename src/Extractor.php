@@ -56,38 +56,38 @@ use Psr\Http\Message\UriInterface;
  */
 class Extractor
 {
-    private RequestInterface $request;
-    private ResponseInterface $response;
-    private UriInterface $uri;
-    private Crawler $crawler;
+    private $request;
+    private $response;
+    private $uri;
+    private $crawler;
 
-    protected Document $document;
-    protected OEmbed $oembed;
-    protected LinkedData $linkedData;
-    protected Metas $metas;
+    protected $document;
+    protected $oembed;
+    protected $linkedData;
+    protected $metas;
 
-    private array $settings = [];
-    private array $customDetectors = [];
+    private $settings = [];
+    private $customDetectors = [];
 
-    protected AuthorName $authorName;
-    protected AuthorUrl $authorUrl;
-    protected Cms $cms;
-    protected Code $code;
-    protected Description $description;
-    protected Favicon $favicon;
-    protected Feeds $feeds;
-    protected Icon $icon;
-    protected Image $image;
-    protected Keywords $keywords;
-    protected Language $language;
-    protected Languages $languages;
-    protected License $license;
-    protected ProviderName $providerName;
-    protected ProviderUrl $providerUrl;
-    protected PublishedTime $publishedTime;
-    protected Redirect $redirect;
-    protected Title $title;
-    protected Url $url;
+    protected $authorName;
+    protected $authorUrl;
+    protected $cms;
+    protected $code;
+    protected $description;
+    protected $favicon;
+    protected $feeds;
+    protected $icon;
+    protected $image;
+    protected $keywords;
+    protected $language;
+    protected $languages;
+    protected $license;
+    protected $providerName;
+    protected $providerUrl;
+    protected $publishedTime;
+    protected $redirect;
+    protected $title;
+    protected $url;
 
     public function __construct(UriInterface $uri, RequestInterface $request, ResponseInterface $response, Crawler $crawler)
     {

@@ -10,7 +10,7 @@ trait HttpApiTrait
 {
     use ApiTrait;
 
-    private ?UriInterface $endpoint;
+    private $endpoint;
 
     public function getEndpoint(): ?UriInterface
     {

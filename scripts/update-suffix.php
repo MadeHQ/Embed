@@ -6,7 +6,9 @@ require dirname(__DIR__).'/vendor/autoload.php';
 use Brick\VarExporter\VarExporter;
 
 $lines = file(__DIR__.'/suffix.dat', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$lines = array_filter($lines, fn ($line) => $line[0] !== '/');
+$lines = array_filter($lines, function ($line) {
+    return $line[0] !== '/';
+});
 
 file_put_contents(
     dirname(__DIR__).'/src/resources/suffix.php',

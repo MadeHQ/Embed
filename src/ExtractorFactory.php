@@ -10,8 +10,8 @@ use Psr\Http\Message\UriInterface;
 
 class ExtractorFactory
 {
-    private string $default = Extractor::class;
-    private array $adapters = [
+    private $default = Extractor::class;
+    private $adapters = [
         'slides.com' => Adapters\Slides\Extractor::class,
         'pinterest.com' => Adapters\Pinterest\Extractor::class,
         'flickr.com' => Adapters\Flickr\Extractor::class,
@@ -31,8 +31,8 @@ class ExtractorFactory
         'bandcamp.com' => Adapters\Bandcamp\Extractor::class,
         'twitter.com' => Adapters\Twitter\Extractor::class,
     ];
-    private array $customDetectors = [];
-    private array $settings;
+    private $customDetectors = [];
+    private $settings;
 
     public function __construct(?array $settings = [])
     {

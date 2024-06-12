@@ -18,7 +18,7 @@ class Metas
 
             if (!empty($value) && !empty($type)) {
                 $type = strtolower($type);
-                $data[$type] ??= [];
+                $data[$type] = $data[$type] ?? [];
                 $data[$type][] = $value;
             }
         }

@@ -15,9 +15,9 @@ class LinkedData
 {
     use ApiTrait;
 
-    private ?DocumentInterface $document;
+    private $document;
 
-    private array $allData;
+    private $allData;
 
     public function get(string ...$keys)
     {
@@ -143,7 +143,9 @@ class LinkedData
     {
         if (is_array($value)) {
             return array_map(
-                fn ($val) => self::detectValue($val),
+                function ($val) {
+                    return self::detectValue($val);
+                },
                 array_values($value)
             );
         }

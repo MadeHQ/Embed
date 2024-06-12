@@ -13,10 +13,10 @@ use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class Document
 {
-    private static CssSelectorConverter $cssConverter;
-    private Extractor $extractor;
-    private DOMDocument $document;
-    private DOMXPath $xpath;
+    private static $cssConverter;
+    private $extractor;
+    private $document;
+    private $xpath;
 
     public function __construct(Extractor $extractor)
     {

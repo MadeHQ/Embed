@@ -9,8 +9,8 @@ use Psr\Http\Message\ResponseInterface;
 
 class Embed
 {
-    private Crawler $crawler;
-    private ExtractorFactory $extractorFactory;
+    private $crawler;
+    private $extractorFactory;
 
     public function __construct(Crawler $crawler = null, ExtractorFactory $extractorFactory = null)
     {
@@ -32,7 +32,9 @@ class Embed
     public function getMulti(string ...$urls): array
     {
         $requests = array_map(
-            fn ($url) => $this->crawler->createRequest('GET', $url),
+            function ($url) {
+                return $this->crawler->createRequest('GET', $url);
+            },
             $urls
         );
 

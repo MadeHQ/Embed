@@ -12,10 +12,10 @@ use Psr\Http\Message\UriInterface;
 
 class Crawler implements ClientInterface, RequestFactoryInterface, UriFactoryInterface
 {
-    private RequestFactoryInterface $requestFactory;
-    private UriFactoryInterface $uriFactory;
-    private ClientInterface $client;
-    private array $defaultHeaders = [
+    private $requestFactory;
+    private $uriFactory;
+    private $client;
+    private $defaultHeaders = [
         'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:73.0) Gecko/20100101 Firefox/73.0',
         'Cache-Control' => 'max-age=0',
     ];
@@ -63,7 +63,9 @@ class Crawler implements ClientInterface, RequestFactoryInterface, UriFactoryInt
         }
 
         return array_map(
-            fn ($request) => $this->client->sendRequest($request),
+            function ($request) {
+                return $this->client->sendRequest($request);
+            },
             $requests
         );
     }

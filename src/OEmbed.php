@@ -12,7 +12,7 @@ class OEmbed
     use HttpApiTrait;
 
     private static $providers;
-    private array $defaults = [];
+    private $defaults = [];
 
     private static function getProviders(): array
     {

@@ -18,10 +18,10 @@ use Psr\Http\Message\UriInterface;
  */
 final class FileClient implements ClientInterface
 {
-    private int $mode = 0;
-    private string $path;
-    private ResponseFactoryInterface $responseFactory;
-    private ClientInterface $client;
+    private $mode = 0;
+    private $path;
+    private $responseFactory;
+    private $client;
 
     public function __construct(string $path)
     {

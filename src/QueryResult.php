@@ -11,8 +11,8 @@ use Throwable;
 
 class QueryResult
 {
-    private Extractor $extractor;
-    private array $nodes = [];
+    private $extractor;
+    private $nodes = [];
 
     public function __construct(DOMNodeList $result, Extractor $extractor)
     {
@@ -54,7 +54,9 @@ class QueryResult
 
         return array_filter(
             array_map(
-                fn ($node) => $attribute ? self::getAttribute($node, $attribute) : $node->nodeValue,
+                function ($node) {
+                    return $attribute ? self::getAttribute($node, $attribute) : $node->nodeValue;
+                },
                 $nodes
             )
         );
@@ -69,7 +71,9 @@ class QueryResult
 
     public function strAll(string $attribute = null): array
     {
-        return array_filter(array_map(fn ($value) => clean($value), $this->getAll($attribute)));
+        return array_filter(array_map(function ($value) {
+            return clean($value);
+        }, $this->getAll($attribute)));
     }
 
     public function int(string $attribute = null): ?int

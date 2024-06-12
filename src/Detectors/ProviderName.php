@@ -5,7 +5,7 @@ namespace Embed\Detectors;
 
 class ProviderName extends Detector
 {
-    private static array $suffixes;
+    private static $suffixes;
 
     public function detect(): string
     {

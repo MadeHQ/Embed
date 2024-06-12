@@ -13,8 +13,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 final class CurlClient implements ClientInterface
 {
-    private ResponseFactoryInterface $responseFactory;
-    private array $settings = [];
+    private $responseFactory;
+    private $settings = [];
 
     public function __construct(ResponseFactoryInterface $responseFactory = null)
     {

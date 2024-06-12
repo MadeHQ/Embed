@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class DocumentTest extends TestCase
 {
-    private static Embed $embed;
+    private static $embed;
 
     private static function getEmbed(): Embed
     {

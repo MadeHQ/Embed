@@ -9,8 +9,8 @@ use Throwable;
 
 trait ApiTrait
 {
-    protected Extractor $extractor;
-    private array $data;
+    protected $extractor;
+    private $data;
 
     public function __construct(Extractor $extractor)
     {
@@ -55,7 +55,9 @@ trait ApiTrait
     public function strAll(string ...$keys): array
     {
         $all = (array) $this->get(...$keys);
-        return array_filter(array_map(fn ($value) => clean($value), $all));
+        return array_filter(array_map(function ($value) {
+            return clean($value);
+        }, $all));
     }
 
     public function html(string ...$keys): ?string

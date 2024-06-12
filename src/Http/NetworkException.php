@@ -9,7 +9,7 @@ use Psr\Http\Message\RequestInterface;
 
 final class NetworkException extends Exception implements NetworkExceptionInterface
 {
-    private RequestInterface $request;
+    private $request;
 
     public function __construct(string $message, int $code, RequestInterface $request)
     {

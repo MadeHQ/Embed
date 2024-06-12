@@ -40,7 +40,7 @@ abstract class PagesTestCase extends TestCase
         'url',
     ];
 
-    private static Embed $embed;
+    private static $embed;
 
     private static function getEmbed(): Embed
     {

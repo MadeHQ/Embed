@@ -7,8 +7,8 @@ use Embed\Extractor;
 
 abstract class Detector
 {
-    protected Extractor $extractor;
-    private array $cache;
+    protected $extractor;
+    private $cache;
 
     public function __construct(Extractor $extractor)
     {

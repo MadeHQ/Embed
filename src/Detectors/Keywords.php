@@ -52,7 +52,9 @@ class Keywords extends Detector
             $tags = array_map('trim', $tags);
             $tags = array_filter(
                 $tags,
-                fn ($value) => !empty($value) && substr($value, -3) !== '...'
+                function ($value) {
+                    return !empty($value) && substr($value, -3) !== '...';
+                }
             );
 
             $all = array_merge($all, $tags);

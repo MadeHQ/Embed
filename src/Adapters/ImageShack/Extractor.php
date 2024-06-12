@@ -7,7 +7,7 @@ use Embed\Extractor as Base;
 
 class Extractor extends Base
 {
-    private Api $api;
+    private $api;
 
     public function getApi(): Api
     {
